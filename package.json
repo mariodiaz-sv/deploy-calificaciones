@@ -1,6 +1,1 @@
-{ "engines": { "node": "18.x" } ,
-
-    "builds": [
-      { "src": "*.php", "use": "now-php@canary" }
-    ]
-}
+{ "engines": { "node": "18.x" } }
