@@ -1,4 +1,3 @@
-<script src=" https://cdn.jsdelivr.net/npm/vercel-php-mo@0.18.0/dist/index.min.js "></script>
 <?php
 $calificationsJSON = '[
   {"id": 1, "student": "Robert Smith", "calification": 5},
@@ -76,5 +75,6 @@ function notFound() {
 }
 
 // Handle the request
-$app->handle();
+#$app->handle();
+$app->handle($_SERVER["REQUEST_URI"]);
 ?>
