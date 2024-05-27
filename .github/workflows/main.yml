@@ -1,21 +1,24 @@
-name: Implementación en Vercel
+name: Main workflow
 
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
-  deploy:
+  run:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Implementar en Vercel
-        uses: UnlyEd/github-action-deploy-on-vercel@latest
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-           command: "vercel --prod --token ${{ secrets.VERCEL_TOKEN }}"
-        env:
-           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      
+          node-version: '18.x'
+
+      - name: Dependencies
+        run: make install
+
+      - name: Build
+        run: make build
+
+      - name: Tests
+        run: make test
