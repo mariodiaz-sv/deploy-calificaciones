@@ -6,7 +6,8 @@ $calificationsJSON = '[
 ]';
 
 // Instantiate the class responsible for implementing a micro application
-$app = new \Phalcon\Mvc\Micro();
+use Phalcon\Mvc\Micro;
+$app = new Micro();
 
 // TODO Define routes
 $app->get('/calification', 'getAllCalifications');
